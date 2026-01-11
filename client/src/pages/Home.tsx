@@ -173,7 +173,7 @@ export default function Home() {
                           : 'bg-muted text-muted-foreground hover:bg-muted/80'
                       }`}
                     >
-                      {category.name}
+                      {category.label}
                     </button>
                   ))}
                 </div>
