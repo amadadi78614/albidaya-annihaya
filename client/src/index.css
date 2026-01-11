@@ -1,0 +1,439 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --primary: #1a3a52;
+  --primary-foreground: #f5f1e8;
+  --sidebar-primary: #1a3a52;
+  --sidebar-primary-foreground: #f5f1e8;
+  --chart-1: #d4a574;
+  --chart-2: #b8956a;
+  --chart-3: #1a3a52;
+  --chart-4: #0f2438;
+  --chart-5: #2c5aa0;
+  --radius: 0.65rem;
+  --background: #f5f1e8;
+  --foreground: #1a3a52;
+  --card: #ffffff;
+  --card-foreground: #1a3a52;
+  --popover: #ffffff;
+  --popover-foreground: #1a3a52;
+  --secondary: #d4a574;
+  --secondary-foreground: #1a3a52;
+  --muted: #e8e0d5;
+  --muted-foreground: #6b7280;
+  --accent: #d4a574;
+  --accent-foreground: #1a3a52;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #e8e0d5;
+  --input: #ffffff;
+  --ring: #d4a574;
+  --sidebar: #f5f1e8;
+  --sidebar-foreground: #1a3a52;
+  --sidebar-accent: #d4a574;
+  --sidebar-accent-foreground: #1a3a52;
+  --sidebar-border: #e8e0d5;
+  --sidebar-ring: #d4a574;
+}
+
+.dark {
+  --primary: #1a3a52;
+  --primary-foreground: #f5f1e8;
+  --sidebar-primary: #0f2438;
+  --sidebar-primary-foreground: #f5f1e8;
+  --background: #0f2438;
+  --foreground: #e8e0d5;
+  --card: #1a3a52;
+  --card-foreground: #e8e0d5;
+  --popover: #1a3a52;
+  --popover-foreground: #e8e0d5;
+  --secondary: #d4a574;
+  --secondary-foreground: #0f2438;
+  --muted: #2c5aa0;
+  --muted-foreground: #9ca3af;
+  --accent: #d4a574;
+  --accent-foreground: #0f2438;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #2c5aa0;
+  --input: #1a3a52;
+  --ring: #d4a574;
+  --chart-1: #d4a574;
+  --chart-2: #b8956a;
+  --chart-3: #2c5aa0;
+  --chart-4: #1a3a52;
+  --chart-5: #0f2438;
+  --sidebar: #0f2438;
+  --sidebar-foreground: #e8e0d5;
+  --sidebar-accent: #d4a574;
+  --sidebar-accent-foreground: #0f2438;
+  --sidebar-border: #2c5aa0;
+  --sidebar-ring: #d4a574;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /* Islamic Geometric Patterns */
+  .islamic-pattern {
+    background-image: 
+      linear-gradient(45deg, transparent 48%, rgba(212, 165, 116, 0.1) 49%, rgba(212, 165, 116, 0.1) 51%, transparent 52%),
+      linear-gradient(-45deg, transparent 48%, rgba(212, 165, 116, 0.1) 49%, rgba(212, 165, 116, 0.1) 51%, transparent 52%);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+  }
+
+  /* Arabic Ornament */
+  .arabic-ornament {
+    position: relative;
+  }
+
+  .arabic-ornament::before,
+  .arabic-ornament::after {
+    content: '✦';
+    color: rgba(212, 165, 116, 0.6);
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+  }
+
+  /* Islamic Border */
+  .islamic-border {
+    border-top: 3px solid transparent;
+    border-image: linear-gradient(90deg, rgba(212, 165, 116, 0), rgba(212, 165, 116, 0.8), rgba(212, 165, 116, 0)) 1;
+    padding-top: 1rem;
+  }
+
+  /* Crescent Moon Divider */
+  .crescent-divider {
+    text-align: center;
+    font-size: 2rem;
+    color: rgba(212, 165, 116, 0.4);
+    margin: 2rem 0;
+    letter-spacing: 1rem;
+  }
+
+  /* Arabic Text Styling */
+  .arabic-text {
+    font-family: 'Amiri', serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  /* Islamic Gold Accent */
+  .islamic-gold {
+    color: #d4a574;
+  }
+
+  /* Geometric Star */
+  .geometric-star {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: linear-gradient(135deg, #d4a574 25%, transparent 25%) -0.75rem 0,
+                linear-gradient(225deg, #d4a574 25%, transparent 25%) -0.75rem 0,
+                linear-gradient(315deg, #d4a574 25%, transparent 25%),
+                linear-gradient(45deg, #d4a574 25%, transparent 25%);
+    background-size: 1.5rem 1.5rem;
+    background-color: transparent;
+  }
+
+  .timeline-era-header {
+    position: relative;
+    padding: 1.5rem 0;
+    text-align: center;
+  }
+
+  .timeline-era-header::before,
+  .timeline-era-header::after {
+    content: '✦';
+    position: absolute;
+    color: #d4a574;
+    font-size: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .timeline-era-header::before {
+    left: 0;
+  }
+
+  .timeline-era-header::after {
+    right: 0;
+  }
+
+  /* Decorative Line */
+  .decorative-line {
+    height: 2px;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(212, 165, 116, 0.3) 10%, 
+      rgba(212, 165, 116, 0.8) 50%, 
+      rgba(212, 165, 116, 0.3) 90%, 
+      transparent);
+    position: relative;
+  }
+
+  .decorative-line::after {
+    content: '◆';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 0 0.5rem;
+    color: #d4a574;
+    font-size: 0.75rem;
+  }
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+}
+
+/* Timeline animations and custom styles */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes expandHeight {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 1000px;
+    opacity: 1;
+  }
+}
+
+/* Timeline event card entrance */
+.timeline-event {
+  animation: slideInLeft 0.5s ease-out forwards;
+}
+
+/* Timeline dot hover effect */
+.timeline-dot {
+  transition: all 0.3s ease;
+}
+
+.timeline-dot:hover {
+  transform: scale(1.25);
+  box-shadow: 0 0 12px rgba(212, 165, 116, 0.5);
+}
+
+/* Timeline card hover effect */
+.timeline-card {
+  transition: all 0.3s ease;
+}
+
+.timeline-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent);
+}
+
+/* Smooth scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+  opacity: 0.5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+  opacity: 0.8;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--background);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .timeline-event {
+    animation-delay: 0.1s;
+  }
+}
+
+
+/* Islamic Geometric Patterns and Arabic Design */
+@keyframes geometricRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.islamic-pattern {
+  background-image: 
+    repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(212, 165, 116, 0.1) 35px, rgba(212, 165, 116, 0.1) 70px),
+    repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(212, 165, 116, 0.1) 35px, rgba(212, 165, 116, 0.1) 70px);
+}
+
+.geometric-border {
+  border-image: linear-gradient(135deg, #d4a574 0%, #8b7355 50%, #d4a574 100%) 1;
+}
+
+.arabic-shadow {
+  box-shadow: 0 8px 32px rgba(212, 165, 116, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.ornamental-divider {
+  position: relative;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4a574, transparent);
+}
+
+.ornamental-divider::before,
+.ornamental-divider::after {
+  content: '◆';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #d4a574;
+  font-size: 12px;
+}
+
+.ornamental-divider::before {
+  left: 0;
+}
+
+.ornamental-divider::after {
+  right: 0;
+}
+
+.crescent-moon {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.star-burst {
+  animation: geometricRotate 20s linear infinite;
+}
